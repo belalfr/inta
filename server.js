@@ -15,7 +15,8 @@ async function redis(cmd) {
   return r.json();
 }
 
-app.post("/api/capture", async (req, res) => {
+// CHANGED: Route name changed to avoid file-system write conflicts
+app.post("/api/store", async (req, res) => {
   const entry = JSON.stringify({
     time: new Date().toISOString(),
     ip: req.headers["x-forwarded-for"] || "",
